@@ -8,7 +8,7 @@ const redis = require('redis')
 const client = redis.createClient()
 
 const { promisify } = require('util')
-//const getAsync = promisify(client.get).bind(client);
+
 const setAsync = promisify(client.set).bind(client)
 
 const baseURL = 'https://jobs.github.com/positions.json'
@@ -49,7 +49,7 @@ async function fetchGithub() {
     return true
   })
 
-  console.log('Filtered down to Junior Jobs', jrJobs.length)
+  console.log('Filtered down to Junior Jobs', jrJobs.le)
 
   //Set in Redis
   console.log('got', allJobs.length, 'jobs total')
